@@ -20,10 +20,10 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Free Trial(b3ba5f50-a440-46aa-aeb9-896ef73c3279)'
+    azureSubscription: 'Free Trial (b3ba5f50-a440-46aa-aeb9-896ef73c3279)'
     appType: 'webApp'
-    WebAppName: 'nitinangulardemo'
-    packageForLinux: 'dist/angularDemoApp/'
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+    WebAppName: 'nitinangulardemoprod'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'nitinjaiswal'
+    SlotName: 'production'
+    packageForLinux: 'dist/angularDemoApp'
