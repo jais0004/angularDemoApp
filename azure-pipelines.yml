@@ -19,12 +19,18 @@ steps:
   displayName: 'npm install and build'
 
 - task: AzureRmWebAppDeployment@4
+
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Free Trial(b3ba5f50-a440-46aa-aeb9-896ef73c3279)'
     appType: 'webApp'
     WebAppName: 'nitinangulardemo'
     packageForLinux: 'dist/angularDemoApp/'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'armTemplates'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'   
 
 - task: PublishBuildArtifacts@1
   inputs:
