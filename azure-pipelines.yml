@@ -20,3 +20,13 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(b3ba5f50-a440-46aa-aeb9-896ef73c3279)'
+    appType: 'webApp'
+    WebAppName: 'nitinjaiswalsampleangular'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'nitinjaiswal'
+    SlotName: 'production'
+    packageForLinux: '/dist/angularDemoApp'
